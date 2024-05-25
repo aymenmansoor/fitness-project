@@ -2,11 +2,12 @@
 #include<string>
 using namespace std;
 int main() {
-	float  height, bmi, cardioDistance, cardioSpeed=0.0;
+	float  height, bmi, cardioDistance, cardioSpeed=0.0, duration, futureWorkoutDuration;
 	int choice, age, contact, goal, weight, dis, cardioDuration, sets, reps;
-	string exerciseName;
+	string futureWorkoutType, futureWorkoutDate, futureWorkoutDetails;
+	string exerciseName, className, groupClassDate, groupClassType;
 	string name, gender, option, y, health, f, m, cardioDate, weightliftingDate;
-	int admssion_fees = 2000;
+	int admssion_fees = 2000, groupClassOption,groupClassDuration;
 	int monthly_fees = 5000;
 	cout << "WELCOME TO TRYFIT FITNESS TRACKING APPLICATION" << '\n' << '\n';
 	cout << "Select what you want \n\n";
@@ -223,20 +224,24 @@ int main() {
 			}
 		}
 		cout << "Admission fees:" << admssion_fees << '\n';
-		cout << "Monthly Fees: " << monthly_fees << '\n\n';
+		cout << "Monthly Fees: " << monthly_fees << endl<<endl;
 		if (age <= 23 || age >= 49) {
 			dis = (20 * monthly_fees) / 100;
-			cout << "You got 20% discount!!";
+			cout << "You got 20% discount!! \n";
 
 		}
+		break;
 	case 2:
 		do {
 			cout << "ACTIVITY TRACKER \n\n";
 			cout << "1. Log Cardio Activity" << endl;
 			cout << "2. Log Weightlifting Activity" << endl;
-			cout << "3. Display Activities" << endl;
-			cout << "4. Exit" << endl<<endl;
-			cout << "Enter your choice (1-4): ";
+			cout << "3. Log Group Classes  Activity" << endl;
+			cout << "4. Display Activities" << endl;
+			cout << "5. Plan Future Workouts" << endl;
+			cout << "6. Provide Workout Suggestions" << endl;
+			cout << "7. Exit" << endl<<endl;
+			cout << "Enter your choice (1-7): ";
 			cin >> choice;
 			cout << endl;
 			switch (choice) {
@@ -264,6 +269,63 @@ int main() {
 				cout << "Weightlifting activity logged successfully!" << endl;
 				break;
 			case 3:
+				cout << "Choose a fitness goal for group class:\n";
+				cout << "1. Weight Loss\n";
+				cout << "2. Muscle Gain\n";
+				cout << "3. Endurance Improvement\n";
+				cout << "4. Flexibility and Mobility\n";
+				cout << "5. General Fitness\n";
+				cout << "6. Sport-Specific Training\n";
+				cout << "7. Mind-Body Wellness\n";
+				cout << "8. Functional Strength\n";
+				cout << "9. Healthy Aging\n";
+				cout << "10. Pre/Post Natal\n\n";
+				cout << "Enter your choice (1-10): ";
+				cin >> groupClassOption;
+
+				switch (groupClassOption) {
+				case 1:
+					groupClassType = "Aerobics";
+					break;
+				case 2:
+					groupClassType = "Strength Training";
+					break;
+				case 3:
+					groupClassType = "Circuit Training";
+					break;
+				case 4:
+					groupClassType = "Yoga";
+					break;
+				case 5:
+					groupClassType = "Full-Body Workout";
+					break;
+				case 6:
+					groupClassType = "Soccer Training";
+					break;
+				case 7:
+					groupClassType = "Tai Chi";
+					break;
+				case 8:
+					groupClassType = "CrossFit";
+					break;
+				case 9:
+					groupClassType = "Senior Fitness";
+					break;
+				case 10:
+					groupClassType = "Prenatal Yoga";
+					break;
+				default:
+					cout << "Invalid choice. Please try again." << endl;
+					continue; 
+				}
+				cout << "Enter date (YYYY-MM-DD): ";
+				cin >> groupClassDate;
+				cout << "Enter duration (minutes): ";
+				cin >> groupClassDuration;
+				cout << groupClassType << " class activity logged successfully!" << endl;
+				break;
+				
+			case 4:
 				cout << "\nLogged Cardio Activity:" << endl;
 				if (!cardioDate.empty()) {
 					cout << "Date: " << cardioDate;
@@ -286,13 +348,48 @@ int main() {
 				else {
 					cout << "No weightlifting activity logged." << endl;
 				}
-			case 4:
+				cout << "\nLogged Group Classes Activity:" << endl;
+				if (!groupClassDate.empty()) {
+					cout << "Date: " << groupClassDate;
+					cout << ", Class Type: " << groupClassType;
+					cout << ", Duration: " << groupClassDuration << " minutes" << endl;
+				}
+				else {
+					cout << "No group class activity logged." << endl;
+				}
+				break;
+			case 5:
+				 cout << "Enter type of workout: ";
+            cin.ignore();
+            getline(cin, futureWorkoutType);
+            cout << "Enter date (YYYY-MM-DD): ";
+            cin >> futureWorkoutDate;
+            cout << "Enter duration (minutes): ";
+            cin >> futureWorkoutDuration;
+            cout << "Enter any additional details: ";
+            getline(cin, futureWorkoutDetails);
+            cout << "Future workout planned successfully!" << endl;
+			break;
+			case 6:
+				cout << "Workout Suggestions based on your goals:\n";
+				cout << "1. For Weight Loss: Try incorporating more cardio and high-intensity interval training (HIIT).\n";
+				cout << "2. For Muscle Gain: Focus on strength training with progressive overload.\n";
+				cout << "3. For Endurance Improvement: Include longer duration cardio sessions and stamina-building exercises.\n";
+				cout << "4. For Flexibility and Mobility: Add yoga and stretching routines to your plan.\n";
+				cout << "5. For General Fitness: Mix different types of workouts for a balanced routine.\n";
+				cout << "6. For Sport-Specific Training: Tailor exercises to the specific movements of your sport.\n";
+				cout << "7. For Mind-Body Wellness: Practice activities like yoga, Pilates, and tai chi.\n";
+				cout << "8. For Functional Strength: Focus on compound movements and bodyweight exercises.\n";
+				cout << "9. For Healthy Aging: Incorporate low-impact exercises and strength training.\n";
+				cout << "10. For Pre/Post Natal: Follow exercises specifically designed for pre/post-natal fitness.\n";
+			case 7:
 				cout << "Exiting the application.\n";
 				break;
 			default:
 				cout << "Invalid choice. Please try again. ";
+				break;
 			}
-		} while (choice!=4);
+		} while (choice!=7);
 		break;
 	case 3:
 		break;
