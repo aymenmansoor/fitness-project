@@ -2,9 +2,10 @@
 #include<string>
 using namespace std;
 int main() {
-	float  height, bmi;
-	int choice, age, contact, goal, weight, dis, fee;
-	string name, gender, option, y, health, f, m;
+	float  height, bmi, cardioDistance, cardioSpeed=0.0;
+	int choice, age, contact, goal, weight, dis, cardioDuration, sets, reps;
+	string exerciseName;
+	string name, gender, option, y, health, f, m, cardioDate, weightliftingDate;
 	int admssion_fees = 2000;
 	int monthly_fees = 5000;
 	cout << "WELCOME TO TRYFIT FITNESS TRACKING APPLICATION" << '\n' << '\n';
@@ -29,8 +30,6 @@ int main() {
 		cin >> gender;
 		cout << "Contact No. : ";
 		cin >> contact;
-		cout << "Admission fees:" << admssion_fees<<'\n';
-		cout << "Monthly Fees: " << monthly_fees << '\n';
 		cout << "Enter Your Weight in kg: ";
 		cin >> weight;
 		cout << "Enter Your Height in m: ";
@@ -206,7 +205,7 @@ int main() {
 					cout << "- Listen to your body and honor its changing needs and limitations as you age, adapting your lifestyle habits and activities accordingly to support long-term health and well-being.\n\n";
 				}
 				break;
-			case 10:
+			default:
 				if (age >= 18) {
 					cout << "Welcome To Pre / Post Natal Goals: \n\n";
 					cout << "Pre / Post Natal fitness focuses on supporting women's health and well-being during pregnancy and postpartum recovery. Here are some strategies to help you navigate this transformative journey:\n";
@@ -223,11 +222,89 @@ int main() {
 				break;
 			}
 		}
-		if (age >= 23 && age >= 49) {
+		cout << "Admission fees:" << admssion_fees << '\n';
+		cout << "Monthly Fees: " << monthly_fees << '\n\n';
+		if (age <= 23 || age >= 49) {
 			dis = (20 * monthly_fees) / 100;
 			cout << "You got 20% discount!!";
 
 		}
-		return 0;
+	case 2:
+		do {
+			cout << "ACTIVITY TRACKER \n\n";
+			cout << "1. Log Cardio Activity" << endl;
+			cout << "2. Log Weightlifting Activity" << endl;
+			cout << "3. Display Activities" << endl;
+			cout << "4. Exit" << endl<<endl;
+			cout << "Enter your choice (1-4): ";
+			cin >> choice;
+			cout << endl;
+			switch (choice) {
+			case 1:
+				cout << "Enter date (YYYY-MM-DD): ";
+				cin >> cardioDate;
+				cout << "Enter duration (minutes): ";
+				cin >> cardioDuration;
+				cout << "Enter distance (km): ";
+				cin >> cardioDistance;
+				cardioSpeed = cardioDistance / (cardioDuration / 60.0);
+				cout << "Cardio activity logged successfully!" << endl;
+				break;
+			case 2:
+				cout << "Enter date (YYYY-MM-DD): ";
+				cin >> weightliftingDate;
+				cout << "Enter exercise name: ";
+				getline(cin, exerciseName);
+				cout << "Enter number of sets: ";
+				cin >> sets;
+				cout << "Enter number of reps per set: ";
+				cin >> reps;
+				cout << "Enter weight lifted (kg): ";
+				cin >> weight;
+				cout << "Weightlifting activity logged successfully!" << endl;
+				break;
+			case 3:
+				cout << "\nLogged Cardio Activity:" << endl;
+				if (!cardioDate.empty()) {
+					cout << "Date: " << cardioDate;
+					cout << ", Duration: " << cardioDuration << " minutes";
+					cout << ", Distance: " << cardioDistance << " km";
+					cout << ", Speed: " << cardioSpeed << " km/h" << endl;
+				}
+				else {
+					cout << "No cardio activity logged." << endl;
+				}
+
+				cout << "\nLogged Weightlifting Activity:" << endl;
+				if (!weightliftingDate.empty()) {
+					cout << "Date: " << weightliftingDate;
+					cout << ", Exercise: " << exerciseName;
+					cout << ", Sets: " << sets;
+					cout << ", Reps per set: " << reps;
+					cout << ", Weight: " << weight << " kg" << endl;
+				}
+				else {
+					cout << "No weightlifting activity logged." << endl;
+				}
+			case 4:
+				cout << "Exiting the application.\n";
+				break;
+			default:
+				cout << "Invalid choice. Please try again. ";
+			}
+		} while (choice!=4);
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	case 6:
+		break;
+	default:
+		cout << "Enter no. b/w 1-6 only";
+		break;
 	}
+	return 0;
 }
