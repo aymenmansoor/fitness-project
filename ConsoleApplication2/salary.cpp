@@ -360,16 +360,16 @@ int main() {
 				break;
 			case 5:
 				 cout << "Enter type of workout: ";
-            cin.ignore();
-            getline(cin, futureWorkoutType);
-            cout << "Enter date (YYYY-MM-DD): ";
-            cin >> futureWorkoutDate;
-            cout << "Enter duration (minutes): ";
-            cin >> futureWorkoutDuration;
-            cout << "Enter any additional details: ";
-            getline(cin, futureWorkoutDetails);
-            cout << "Future workout planned successfully!" << endl;
-			break;
+                 cin.ignore();
+                 getline(cin, futureWorkoutType);
+                 cout << "Enter date (YYYY-MM-DD): ";
+                 cin >> futureWorkoutDate;
+                 cout << "Enter duration (minutes): ";
+                 cin >> futureWorkoutDuration;
+                 cout << "Enter any additional details: ";
+                 getline(cin, futureWorkoutDetails);
+                 cout << "Future workout planned successfully!" << endl;
+		    	 break;
 			case 6:
 				cout << "Workout Suggestions based on your goals:\n";
 				cout << "1. For Weight Loss: Try incorporating more cardio and high-intensity interval training (HIIT).\n";
@@ -382,6 +382,7 @@ int main() {
 				cout << "8. For Functional Strength: Focus on compound movements and bodyweight exercises.\n";
 				cout << "9. For Healthy Aging: Incorporate low-impact exercises and strength training.\n";
 				cout << "10. For Pre/Post Natal: Follow exercises specifically designed for pre/post-natal fitness.\n";
+				break;
 			case 7:
 				cout << "Exiting the application.\n";
 				break;
