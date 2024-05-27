@@ -238,10 +238,8 @@ int main() {
 			cout << "2. Log Weightlifting Activity" << endl;
 			cout << "3. Log Group Classes  Activity" << endl;
 			cout << "4. Display Activities" << endl;
-			cout << "5. Plan Future Workouts" << endl;
-			cout << "6. Provide Workout Suggestions" << endl;
-			cout << "7. Exit" << endl<<endl;
-			cout << "Enter your choice (1-7): ";
+			cout << "5. Exit" << endl << endl;
+			cout << "Enter your choice (1-5): ";
 			cin >> choice;
 			cout << endl;
 			switch (choice) {
@@ -359,38 +357,13 @@ int main() {
 				}
 				break;
 			case 5:
-				 cout << "Enter type of workout: ";
-                 cin.ignore();
-                 getline(cin, futureWorkoutType);
-                 cout << "Enter date (YYYY-MM-DD): ";
-                 cin >> futureWorkoutDate;
-                 cout << "Enter duration (minutes): ";
-                 cin >> futureWorkoutDuration;
-                 cout << "Enter any additional details: ";
-                 getline(cin, futureWorkoutDetails);
-                 cout << "Future workout planned successfully!" << endl;
-		    	 break;
-			case 6:
-				cout << "Workout Suggestions based on your goals:\n";
-				cout << "1. For Weight Loss: Try incorporating more cardio and high-intensity interval training (HIIT).\n";
-				cout << "2. For Muscle Gain: Focus on strength training with progressive overload.\n";
-				cout << "3. For Endurance Improvement: Include longer duration cardio sessions and stamina-building exercises.\n";
-				cout << "4. For Flexibility and Mobility: Add yoga and stretching routines to your plan.\n";
-				cout << "5. For General Fitness: Mix different types of workouts for a balanced routine.\n";
-				cout << "6. For Sport-Specific Training: Tailor exercises to the specific movements of your sport.\n";
-				cout << "7. For Mind-Body Wellness: Practice activities like yoga, Pilates, and tai chi.\n";
-				cout << "8. For Functional Strength: Focus on compound movements and bodyweight exercises.\n";
-				cout << "9. For Healthy Aging: Incorporate low-impact exercises and strength training.\n";
-				cout << "10. For Pre/Post Natal: Follow exercises specifically designed for pre/post-natal fitness.\n";
-				break;
-			case 7:
 				cout << "Exiting the application.\n";
 				break;
 			default:
 				cout << "Invalid choice. Please try again. ";
 				break;
 			}
-		} while (choice!=7);
+		} while (choice!=5);
 		break;
 	case 3:
 		break;
